@@ -1,0 +1,21 @@
+/* src/components/Footer.css */
+
+.footer {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    margin: 0;
+    color: #333;
+}

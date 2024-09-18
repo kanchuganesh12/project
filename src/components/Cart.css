@@ -1,0 +1,60 @@
+/* General styling for the cart page */
+.cart-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.cart-item img {
+    width: 100px;
+    margin-right: 20px;
+}
+
+.cart-item h3 {
+    font-size: 1.2rem;
+}
+
+.cart-item p {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.cart-item button {
+    padding: 5px 10px;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Checkout button styling */
+.checkout-button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.checkout-button:hover {
+    background-color: #218838;
+}
