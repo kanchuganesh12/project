@@ -53,6 +53,31 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
 
+/* Cart Icon Styling */
+.nav-link .cart-icon {
+    display: flex;
+    align-items: center;
+    color: black;
+    font-size: 1.5rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link .cart-icon:hover {
+    color: #28a745; /* Change color to green on hover */
+}
+
+.cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+}
+
 /* Responsive Navbar */
 @media (max-width: 768px) {
     .navbar-nav .nav-link {
@@ -69,5 +94,10 @@
 
     .navbar-collapse {
         text-align: center;
+    }
+
+    .cart-count {
+        top: 0; /* Adjust position for smaller screens */
+        right: 0;
     }
 }

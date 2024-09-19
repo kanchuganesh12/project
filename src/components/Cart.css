@@ -12,6 +12,7 @@
 .cart-item {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Ensure content is spaced out */
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
@@ -19,6 +20,7 @@
 .cart-item img {
     width: 100px;
     margin-right: 20px;
+    border-radius: 5px; /* Optional: Add border radius for a nicer look */
 }
 
 .cart-item h3 {
@@ -30,6 +32,7 @@
     margin-bottom: 10px;
 }
 
+/* Styling for the remove button */
 .cart-item button {
     padding: 5px 10px;
     background-color: #ff4d4d;
@@ -37,6 +40,7 @@
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .cart-item button:hover {
@@ -53,8 +57,43 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 .checkout-button:hover {
     background-color: #218838;
+}
+
+/* Ensure the cart content doesn't break layout */
+.cart-item-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.cart-item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* Responsive design: stack items on small screens */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-item-actions {
+        align-items: flex-start;
+        margin-top: 10px;
+    }
+
+    .cart-item img {
+        margin-bottom: 10px;
+    }
+
+    .checkout-button {
+        width: 100%; /* Full width on smaller screens */
+    }
 }

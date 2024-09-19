@@ -11,12 +11,11 @@ exports.getProducts = async (req, res) => {
     }
 };
 
-// Add new product
+// Add a new product (including the category field)
 exports.addProduct = async (req, res) => {
-    const { name, price, description, image } = req.body;
-
+    const { name, price, description, image, category } = req.body;
+    const product = new Product({ name, price, description, image, category });
     try {
-        const product = new Product({ name, price, description, image });
         const savedProduct = await product.save();
         res.status(201).json(savedProduct);
     } catch (error) {

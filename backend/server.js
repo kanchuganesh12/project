@@ -1,14 +1,13 @@
 const dotenv = require('dotenv');
-dotenv.config();  // Load environment variables at the top
+dotenv.config();
 
 const express = require('express');
 const cors = require('cors');
-const connectDB = require('./config/db');  // Ensure this path is correct
-const productRoutes = require('./routes/productRoutes');  // Ensure this path is correct
-const cartRoutes = require('./routes/cartRoutes');  // Ensure this path is correct
-const contactRoutes = require('./routes/contactRoutes'); // Ensure this path is correct
-const errorHandler = require('./middleware/errorHandler');  // Ensure this path is correct
-
+const connectDB = require('./config/db');
+const productRoutes = require('./routes/productRoutes');
+const cartRoutes = require('./routes/cartRoutes');
+const contactRoutes = require('./routes/contactRoutes');
+const errorHandler = require('./middleware/errorHandler');
 
 // Connect to MongoDB
 connectDB();
@@ -21,8 +20,8 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // API Routes
 app.use('/api/products', productRoutes);  // Product routes
-app.use('/api/cart', cartRoutes);  // Cart routes
-app.use('/api/contact', contactRoutes); 
+app.use('/api/cart', cartRoutes);         // Cart routes
+app.use('/api/contact', contactRoutes);   // Contact form routes
 
 // Error handler middleware
 app.use(errorHandler);

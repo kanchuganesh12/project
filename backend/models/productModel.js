@@ -16,6 +16,11 @@ const productSchema = new mongoose.Schema({
     image: {
         type: String,
     },
+    category: {
+        type: String,
+        enum: ['Fruit Plants', 'Vegetable Plants', 'Ferns', 'Indoor Plants'], // Define allowed categories
+        required: true,
+    }
 });
 
 module.exports = mongoose.model('Product', productSchema);

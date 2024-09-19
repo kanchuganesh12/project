@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Carousel } from 'react-bootstrap';
-import './Home.css'; // Assuming you have some custom styles
+import { useCart } from '../components/CartContext';
+import Products from './Products';  // Import the Products component
+import './Home.css';
 
 function Home() {
     // State to handle form data and submission status
@@ -13,6 +15,8 @@ function Home() {
 
     const [submitted, setSubmitted] = useState(false);
     const [error, setError] = useState(null);
+
+    const { addToCart } = useCart();
 
     // Handle form field changes
     const handleChange = (e) => {
@@ -56,51 +60,47 @@ function Home() {
 
     return (
         <div className="home">
-            {/* Carousel Section */}
-            <Carousel interval={2000} controls={true} indicators={true}>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://via.placeholder.com/1200x400?text=First+Slide"
-                        alt="First slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>First Slide Label</h3>
-                        <p>Description for the first slide.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://via.placeholder.com/1200x400?text=Second+Slide"
-                        alt="Second slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Second Slide Label</h3>
-                        <p>Description for the second slide.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="https://via.placeholder.com/1200x400?text=Third+Slide"
-                        alt="Third slide"
-                    />
-                    <Carousel.Caption>
-                        <h3>Third Slide Label</h3>
-                        <p>Description for the third slide.</p>
-                    </Carousel.Caption>
-                </Carousel.Item>
-            </Carousel>
+            {/* Hero Carousel Section */}
+            <div className="carousel-container">
+                <Carousel interval={2000} controls={true} indicators={true}>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://via.placeholder.com/1200x400?text=Lowest+Fares+or+5x+Refund"
+                            alt="First banner"
+                        />
+                        <Carousel.Caption className="carousel-caption">
+                            <h3>Lowest Fares or 5x Refund</h3>
+                            <p>Use code FLYFK to get a special discount.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://via.placeholder.com/1200x400?text=Great+Deals+on+Plants"
+                            alt="Second banner"
+                        />
+                        <Carousel.Caption className="carousel-caption">
+                            <h3>Exclusive Offers on Plants</h3>
+                            <p>Get discounts on indoor and outdoor plants.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="d-block w-100"
+                            src="https://via.placeholder.com/1200x400?text=Organic+Vegetables+on+Sale"
+                            alt="Third banner"
+                        />
+                        <Carousel.Caption className="carousel-caption">
+                            <h3>Organic Vegetables on Sale</h3>
+                            <p>Fresh, organic vegetables delivered to your door.</p>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                </Carousel>
+            </div>
 
-            {/* About Section */}
-            <section id="about-section" className="about">
-                <h1>About Us</h1>
-                <p>
-                    GreenLeaf Nursery is dedicated to providing fresh, organic vegetables to our community.
-                    Our team works hard to grow the healthiest and tastiest vegetables.
-                </p>
-            </section>
+            {/* Insert the Products section after the carousel */}
+            <Products />
 
             {/* Contact Section */}
             <section id="contact-section" className="contact">
