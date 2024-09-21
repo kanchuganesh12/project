@@ -6,6 +6,9 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import { CartProvider } from './components/CartContext';
+import ProductDetails from './components/ProductDetails'; // Import ProductDetails component
+import SearchResults from './components/SearchResults'; // Import the SearchResults component
+import CategoryPage from './components/CategoryPage';
 
 function App() {
     return (
@@ -16,7 +19,11 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/products" element={<Products />} />
+                        {/* Add a route for individual product details */}
+                        <Route path="/products/:productId" element={<ProductDetails />} />
                         <Route path="/cart" element={<Cart />} />
+                        <Route path="/search" element={<SearchResults />} />
+                        <Route path="/category/:category" element={<CategoryPage />} /> {/* Category Page Route */}
                     </Routes>
                     <Footer />
                 </div>

@@ -13,27 +13,6 @@
     margin-right: 10px; /* Space between the icon and the logo text */
 }
 
-/* Navbar link styling */
-.nav-link .nav-button {
-    color: black; /* Set text color to black */
-    text-decoration: none; /* Remove default underline */
-    font-weight: bold; /* Optional: Make the text bold */
-    background: none; /* Ensure no background is applied */
-    border: none; /* Remove any borders */
-    padding: 0; /* Removes padding to make it look like text */
-    transition: color 0.3s ease, text-decoration 0.3s ease; /* Smooth transition */
-}
-
-.nav-link .nav-button:hover {
-    text-decoration: underline; /* Underline on hover */
-    color: #28a745; /* Change color to green on hover */
-}
-
-.nav-link.active .nav-button {
-    color: #007bff; /* Highlight active link with primary color */
-    text-decoration: underline; /* Underline for active link */
-}
-
 /* Navbar Styling */
 .navbar {
     background-color: #ffffff; /* White background for the navbar */
@@ -41,8 +20,11 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for navbar */
 }
 
+/* Navbar link styling */
 .navbar-nav {
     margin-left: auto; /* Align navigation items to the right */
+    display: flex;
+    align-items: center;
 }
 
 .navbar-toggler {
@@ -50,7 +32,26 @@
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Dark color for menu icon */
+}
+
+/* Search Bar Styling */
+.search-bar-form {
+    display: flex;
+    position: relative; /* Needed for suggestions dropdown positioning */
+    width: 100%; /* Ensure the search bar expands fully */
+    max-width: 600px; /* Limit maximum width */
+    margin-right: auto; /* Ensure search bar stays centered */
+    margin-left: auto; /* Ensure search bar stays centered */
+}
+
+.search-bar-form .form-control {
+    width: 100%; /* Make sure the search bar takes full width */
+    border-radius: 0.25rem;
+}
+
+.search-bar-form .btn {
+    margin-left: 10px;
 }
 
 /* Cart Icon Styling */
@@ -58,13 +59,20 @@
     display: flex;
     align-items: center;
     color: black;
-    font-size: 1.5rem;
+    font-size: 2.2rem; /* Increase cart icon size */
     position: relative;
     transition: color 0.3s ease;
 }
 
 .nav-link .cart-icon:hover {
     color: #28a745; /* Change color to green on hover */
+}
+
+.cart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Ensures cart is aligned to the right */
 }
 
 .cart-count {
@@ -76,6 +84,11 @@
     position: absolute;
     top: -5px;
     right: -10px;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-toggle::after {
+    margin-left: 5px;
 }
 
 /* Responsive Navbar */
@@ -100,4 +113,35 @@
         top: 0; /* Adjust position for smaller screens */
         right: 0;
     }
+
+    .search-bar-form {
+        width: 100%; /* Expand search bar on small screens */
+        margin-right: 0;
+    }
+}
+
+/* Center the search bar */
+.search-bar-form {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Cart icon container styling */
+.cart-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align cart icon to the right */
+    margin-left: auto;
+}
+
+/* Cart text styling for number of items */
+.cart-text {
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #111;
 }
