@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Button, Form, FormControl, Dropdown } from 'react-bootstrap';
 import './Header.css';
 import plantIcon from '../assets/plant-icon.png'; // Import the plant icon
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart, FaHeart, FaUser } from 'react-icons/fa'; // Add icons for wishlist and login
 import { useCart } from './CartContext';
 
 function Header() {
@@ -52,15 +52,15 @@ function Header() {
         <Navbar bg="light" expand="lg" className="header">
             <Navbar.Brand href="/" className="logo">
                 <img src={plantIcon} alt="Plant Icon" className="plant-icon" /> {/* Plant Icon */}
-                <span className="brand-name">Green Trail</span> {/* Green Trail name */}
+                <span className="brand-name">Nimbo</span> {/* Green Trail name */}
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto" style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-                    <Form className="d-flex search-bar-form" onSubmit={handleSubmit} style={{ flex: 1, justifyContent: 'center' }}>
-                        {/* Dropdown for Category Selection */}
-                        <Dropdown onSelect={handleCategoryChange} style={{ marginRight: '10px' }}>
-                            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    <Form className="d-flex search-bar-form" onSubmit={handleSubmit}>
+                        {/* Dropdown for Category Selection inside the search bar */}
+                        <Dropdown onSelect={handleCategoryChange}>
+                            <Dropdown.Toggle variant="secondary" id="category-dropdown" className="category-dropdown">
                                 {category}
                             </Dropdown.Toggle>
 
@@ -77,10 +77,9 @@ function Header() {
                         <FormControl
                             type="text"
                             placeholder="Search for products..."
-                            className="mr-2"
+                            className="search-input"
                             value={searchQuery}
                             onChange={handleInputChange}
-                            style={{ minWidth: '400px' }} // Adjust size of the search bar
                         />
 
                         {/* Search Suggestions */}
@@ -99,15 +98,36 @@ function Header() {
                         )}
 
                         {/* Search Button */}
-                        <Button type="submit" variant="outline-success">Search</Button>
+                        <Button type="submit" className="search-button">Search</Button>
                     </Form>
+
+                    {/* Missed Call To Order Button */}
+                    <Button className="missed-call-btn" href="tel:180030002434">
+                        Missed Call To Order: 9110716291
+                    </Button>
+
+                    {/* Wishlist Icon */}
+                    <NavLink to="/wishlist" className="nav-link">
+                        <div className="wishlist-container">
+                            <FaHeart className="wishlist-icon" />
+                            <span className="wishlist-text">Wishlist</span>
+                        </div>
+                    </NavLink>
+
+                    {/* Login Icon */}
+                    <NavLink to="/login" className="nav-link">
+                        <div className="login-container">
+                            <FaUser className="login-icon" />
+                            <span className="login-text">Login</span>
+                        </div>
+                    </NavLink>
 
                     {/* Cart Icon with Text */}
                     <NavLink to="/cart" className="nav-link cart-link">
                         <div className="cart-container">
                             <FaShoppingCart className="cart-icon" />
                             <span className="cart-text">Cart</span> {/* Cart label */}
-                            <span className="cart-count">{cart.length}</span> {/* Number of items in cart */}
+                            {cart.length > 0 && <span className="cart-count">{cart.length}</span>} {/* Number of items in cart */}
                         </div>
                     </NavLink>
                 </Nav>

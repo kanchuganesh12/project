@@ -34,148 +34,14 @@ body, html {
     text-align: left; /* Align text to the left for better readability */
 }
 
-/* Products section */
-.products-section {
-    text-align: center;
-    margin-top: 40px;
-    max-width: 100%;
-    overflow-x: hidden;
-    padding: 0 20px; /* Add padding to avoid content touching edges */
-    box-sizing: border-box;
-}
-
-.product-grid {
-    display: flex;
-    justify-content: space-between; /* Use space-between to prevent cards from overflowing */
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 100%; /* Ensure grid does not overflow horizontally */
-    box-sizing: border-box;
-}
-
-.product-card {
-    flex: 1 1 calc(20% - 20px); /* Ensures 5 cards per row, adjusts with gap */
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-width: 100%; /* Ensure card doesn't overflow */
-    box-sizing: border-box;
-}
-
-.product-card:hover {
-    transform: scale(1.05); /* Add scale effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.product-card h3 {
-    font-size: 1.4rem;
-    margin-top: 15px;
-}
-
-.product-card button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.product-card button:hover {
-    background-color: #218838;
-}
-
-/* Contact form styles */
-.contact-form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 40px;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box; /* Ensure padding is respected */
-}
-
-.contact-form label {
-    font-size: 1.2rem;
-    margin-right: 10px;
-    white-space: nowrap;
-}
-
-.contact-form input,
-.contact-form textarea {
-    flex-grow: 1;
-    padding: 10px;
-    margin-right: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    max-width: 100%; /* Prevent inputs from overflowing */
-    box-sizing: border-box;
-}
-
-.contact-form textarea {
-    height: 80px;
-}
-
-.contact-form button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    cursor: pointer;
-    align-self: flex-start;
-}
-
 /* Prevent overflow on small screens */
 @media (max-width: 768px) {
-    .product-card {
-        width: calc(50% - 20px); /* Display 2 cards per row on smaller screens */
-    }
-
     .carousel img {
         max-height: 200px;
-    }
-
-    .contact-form {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .contact-form label,
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form button {
-        width: 100%; /* Full width for smaller screens */
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-        margin-right: 0;
     }
 }
 
 @media (max-width: 576px) {
-    /* Adjust product card width for very small screens */
-    .product-card {
-        width: 100%; /* Full width for small screens */
-    }
-
     .carousel img {
         max-height: 150px;
     }

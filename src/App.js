@@ -6,9 +6,10 @@ import Products from './components/Products';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
 import { CartProvider } from './components/CartContext';
-import ProductDetails from './components/ProductDetails'; // Import ProductDetails component
-import SearchResults from './components/SearchResults'; // Import the SearchResults component
+import ProductDetails from './components/ProductDetails';
+import SearchResults from './components/SearchResults';
 import CategoryPage from './components/CategoryPage';
+import OtherServices from './components/OtherServices';
 
 function App() {
     return (
@@ -17,13 +18,15 @@ function App() {
                 <div className="app">
                     <Header />
                     <Routes>
+                        
+                        {/* Other routes */}
                         <Route path="/" element={<Home />} />
                         <Route path="/products" element={<Products />} />
-                        {/* Add a route for individual product details */}
                         <Route path="/products/:productId" element={<ProductDetails />} />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/search" element={<SearchResults />} />
-                        <Route path="/category/:category" element={<CategoryPage />} /> {/* Category Page Route */}
+                        <Route path="/category/:category" element={<CategoryPage />} />
+                        <Route path="/other-services" element={<OtherServices />} />
                     </Routes>
                     <Footer />
                 </div>

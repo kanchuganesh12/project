@@ -18,15 +18,18 @@
     background-color: #ffffff; /* White background for the navbar */
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for navbar */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Navbar link styling */
 .navbar-nav {
     margin-left: auto; /* Align navigation items to the right */
     display: flex;
     align-items: center;
 }
 
+/* Navbar toggler (for mobile) */
 .navbar-toggler {
     border-color: #28a745; /* Green border for the toggle button */
 }
@@ -38,41 +41,73 @@
 /* Search Bar Styling */
 .search-bar-form {
     display: flex;
-    position: relative; /* Needed for suggestions dropdown positioning */
-    width: 100%; /* Ensure the search bar expands fully */
-    max-width: 600px; /* Limit maximum width */
-    margin-right: auto; /* Ensure search bar stays centered */
-    margin-left: auto; /* Ensure search bar stays centered */
+    align-items: center;
+    width: 100%;
+    max-width: 700px; /* Larger search bar width */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 .search-bar-form .form-control {
-    width: 100%; /* Make sure the search bar takes full width */
-    border-radius: 0.25rem;
+    flex-grow: 1;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.search-bar-form .form-control:focus {
+    box-shadow: none;
+    outline: none;
 }
 
 .search-bar-form .btn {
-    margin-left: 10px;
+    background-color: #ff9000;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 0 5px 5px 0;
 }
 
-/* Cart Icon Styling */
-.nav-link .cart-icon {
+.search-bar-form .btn:hover {
+    background-color: #ff7800;
+}
+
+/* Cart, Login, Wishlist Icon Styling */
+.nav-link {
     display: flex;
     align-items: center;
     color: black;
-    font-size: 2.2rem; /* Increase cart icon size */
+    font-size: 1.5rem;
     position: relative;
+    margin-left: 15px; /* Space between the icons */
     transition: color 0.3s ease;
 }
 
-.nav-link .cart-icon:hover {
+.nav-link:hover {
     color: #28a745; /* Change color to green on hover */
 }
 
-.cart-container {
-    position: relative;
+/* Icon Containers for Wishlist, Login, and Cart */
+.icon-container {
     display: flex;
     align-items: center;
-    margin-left: auto; /* Ensures cart is aligned to the right */
+    position: relative;
+}
+
+.icon-text {
+    margin-left: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #111;
+}
+
+/* Cart Icon Styling */
+.cart-icon {
+    font-size: 2rem; /* Larger icon for cart */
 }
 
 .cart-count {
@@ -91,18 +126,55 @@
     margin-left: 5px;
 }
 
+/* Missed Call Button Styling */
+.missed-call-btn {
+    background-color: #ff9000;
+    color: white;
+    border: none;
+    margin-left: 15px;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.missed-call-btn:hover {
+    background-color: #ff7800;
+}
+
+/* Suggestions list styling for search bar */
+.suggestions-list {
+    list-style: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #ddd;
+    z-index: 100;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.suggestion-item:hover {
+    background-color: #f8f9fa;
+}
+
 /* Responsive Navbar */
 @media (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+
     .navbar-nav .nav-link {
         margin-right: 0;
         text-align: center;
         padding: 10px 0;
-    }
-
-    .navbar-nav {
-        margin: 0;
-        display: flex;
-        flex-direction: column;
     }
 
     .navbar-collapse {
@@ -110,7 +182,7 @@
     }
 
     .cart-count {
-        top: 0; /* Adjust position for smaller screens */
+        top: 0;
         right: 0;
     }
 
@@ -126,22 +198,5 @@
     display: flex;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
-}
-
-/* Cart icon container styling */
-.cart-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Align cart icon to the right */
-    margin-left: auto;
-}
-
-/* Cart text styling for number of items */
-.cart-text {
-    margin-left: 10px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #111;
+    max-width: 700px;
 }

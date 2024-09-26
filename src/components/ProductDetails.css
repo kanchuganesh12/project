@@ -49,3 +49,73 @@
     margin-bottom: 10px;
   }
   
+  .product-details {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .product-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .product-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .star {
+    font-size: 1.5rem;
+    color: lightgray;
+  }
+  
+  .star.filled {
+    color: gold;
+  }
+  
+  .quantity-selector {
+    margin-top: 10px;
+  }
+  
+  .quantity-selector input {
+    width: 50px;
+  }
+  
+  .product-actions {
+    margin-top: 20px;
+  }
+  
+  .product-actions button {
+    margin-right: 10px;
+  }
+  
+  .product-reviews .review {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .review-form {
+    margin-top: 20px;
+  }
+  
+  .also-bought {
+    margin-top: 40px;
+  }
+  
+  .also-bought-products {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .related-product-card {
+    text-align: center;
+  }
+  
